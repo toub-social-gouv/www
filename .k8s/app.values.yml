@@ -12,7 +12,7 @@ deployment:
     app.gitlab.com/app: ${CI_PROJECT_PATH_SLUG}
     app.gitlab.com/env: ${CI_ENVIRONMENT_SLUG}
 
-  port: 80
+  port: 5000
 
   livenessProbe:
     periodSeconds: 20
@@ -27,7 +27,7 @@ deployment:
 
   env:
     - name: PORT
-      value: "80"
+      value: "5000"
     - name: NODE_ENV
       value: "production"
 
@@ -40,7 +40,7 @@ ingress:
     - host: "www.fabrique.social.gouv.fr"
       paths:
         - path: /
-          servicePort: 80
+          servicePort: 5000
   tls:
     - hosts:
         - "www.fabrique.social.gouv.fr"
